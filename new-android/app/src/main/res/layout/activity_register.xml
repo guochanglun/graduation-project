@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".activity.RegisterActivity">
+    
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:met_floatingLabel="highlight"
+        app:met_singleLineEllipsis="true"
+        android:hint="昵称"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_singleLineEllipsis="true"
+        android:hint="用户名"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_singleLineEllipsis="true"
+        android:inputType="numberPassword"
+        android:hint="密码"/>
+
+    <com.gcl.news.view.StateButton
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:normalStrokeWidth="1dp"
+        app:normalTextColor="@color/colorPrimary"
+        app:normalStrokeColor="@color/colorPrimary"
+        app:pressedBackgroundColor="@color/colorPrimary"
+        app:pressedTextColor="#ffffff"
+        android:text="注册"/>
+</LinearLayout>

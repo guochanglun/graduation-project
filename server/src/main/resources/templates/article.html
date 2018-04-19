@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+    <title>新闻详情</title>
+    <style>
+        img{
+            max-width: 100%;
+        }
+        div{
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        footer{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3 th:text="${article.title}"></h3>
+    <span th:text="${'来源: '+article.detailSource}"></span>
+    <div th:utext="${article.content}"></div>
+    <hr></hr>
+    <footer><i>最新新闻,每日播报</i></footer>
+</body>
+</html>

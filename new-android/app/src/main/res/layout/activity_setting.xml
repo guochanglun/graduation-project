@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gcl.news.activity.SettingActivity">
+
+    <Switch
+        android:id="@+id/auto_sync"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textColor="#666666"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:text="自动同步"/>
+
+    <Switch
+        android:id="@+id/record_history"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textColor="#666666"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:text="记录浏览历史"/>
+
+    <Switch
+        android:id="@+id/auto_send"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textColor="#666666"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:text="自动推荐"/>
+
+    <Switch
+        android:id="@+id/report_error"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textColor="#666666"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:text="发送错误报告"/>
+    
+    <com.gcl.news.view.StateButton
+        android:id="@+id/clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        app:normalTextColor="@color/colorPrimary"
+        app:pressedBackgroundColor="#eeeeee"
+        android:text="清除缓存"/>
+</LinearLayout>

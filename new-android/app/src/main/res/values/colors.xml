@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="contentColor">#555555</color>
+    <color name="titleColor">#222222</color>
+
+    <color name="bg_normal">#ffffff</color>
+    <color name="bg_activated">#eeeeee</color>
+    <color name="bg_pressed">#123456</color>
+    <color name="bg_logout">#ff0000</color>
+    <color name="bg_edit">#444666</color>
+    <color name="bg_edit_selected">#ff0000</color>
+    <color name="line">#999999</color>
+</resources>
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+        <title>新闻浏览</title>
+
+    <style>
+        body{
+            background-color: #eeeeee;
+            padding: 0;
+            margin:0;
+        }
+        .item{
+            background-color: #ffffff;
+            margin: 0px;
+            padding: 15px;
+            margin-bottom: 1px;
+        }
+        .item:active{
+            background-color: #eeeeee;
+        }
+        .item h3{
+            padding: 5px;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+        .item p{
+            color: #666666;
+            font-size: 14px;
+            margin: 5px 0 5px 0;
+        }
+        .item .single-img{
+            max-width: 35%;
+            height: 100%;
+            float: right;
+            padding-top: 10px;
+            padding-left: 3px;
+        }
+
+        .item .multi-img{
+            max-width: 32%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="item" th:each="n : ${news}" th:onclick="'javascript:go('+${n.articleId}+');'">
+    <!--<img class="single-img" th:src="${n.imageUrl}" th:if="${not #strings.isEmpty(n.imageUrl)}"/>-->
+    <h3 th:text="${n.title}"></h3>
+    <p th:with="length = ${#strings.length(n.abstracts)}" th:text="${#strings.substring(n.abstracts, 0, 50 lt length ? 50 : length) + '...'}"
+       th:if="${not #strings.isEmpty(n.abstracts)}"></p>
+
+    <div th:with="urlList = ${#strings.listSplit(n.imageList,';')}">
+        <img class="multi-img" th:each="src : ${urlList}" th:src="${src}"/>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    function go(article_id) {
+        location = [[${baseUrl}]] + '/news/'+article_id
+    }
+</script>
+</body>
+</html>

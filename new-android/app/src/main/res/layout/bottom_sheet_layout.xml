@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#666666"/>
+    <TextView
+        android:id="@+id/publish"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/selector_category"
+        android:text="发布"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#666666"/>
+    <TextView
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/selector_category"
+        android:text="删除"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#eeeeee"/>
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/selector_category"
+        android:text="取消"/>
+</LinearLayout>
