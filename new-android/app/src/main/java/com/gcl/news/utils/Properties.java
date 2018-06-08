@@ -22,4 +22,6 @@ public class Properties {
     public static int RESULT_CODE_SUCCESS = 0;
     public static int RESULT_CODE_ERROR = -1;
     public static int SELECT_IMAGE_CODE = 0;
+
+    public static String PREFERENCE_NAME = "setting data";
 }

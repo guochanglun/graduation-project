@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.gcl.news.R;
 import com.gcl.news.bean.Image;
 import com.gcl.news.utils.Properties;
+import com.gcl.news.utils.RuntimeObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -44,7 +45,7 @@ public class ImageSelectActivity extends AppCompatActivity {
     private ListView listView;
     private SwipeRefreshLayout refreshLayout;
 
-    private OkHttpClient client = new OkHttpClient();
+    private OkHttpClient client = RuntimeObject.client;
     private Gson gson = new Gson();
 
     private static final String TAG = "ImageSelectActivity";
@@ -114,12 +115,12 @@ public class ImageSelectActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    class ImageAdapter extends BaseAdapter{
+    class ImageAdapter extends BaseAdapter {
 
         private List<Image> images;
         private Context context;
 
-        public ImageAdapter(Context context, List<Image> images){
+        public ImageAdapter(Context context, List<Image> images) {
             this.images = images;
             this.context = context;
         }
@@ -142,20 +143,18 @@ public class ImageSelectActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
-            if(convertView == null)
-            {
+            if (convertView == null) {
                 holder = new ViewHolder();
                 convertView = View.inflate(this.context, R.layout.image_item, null);
                 holder.img = convertView.findViewById(R.id.img);
                 holder.imgDesc = convertView.findViewById(R.id.img_desc);
                 convertView.setTag(holder);
-            }else
-            {
-                holder = (ViewHolder)convertView.getTag();
+            } else {
+                holder = (ViewHolder) convertView.getTag();
             }
             Image image = this.images.get(position);
             Picasso.with(context)
-                    .load(Properties.BASE_IMG_URL+"/"+image.getImgName())
+                    .load(Properties.BASE_IMG_URL + "/" + image.getImgName())
                     .placeholder(R.drawable.image)
                     .error(R.drawable.line)
                     .into(holder.img);
@@ -165,7 +164,7 @@ public class ImageSelectActivity extends AppCompatActivity {
             return convertView;
         }
 
-        class ViewHolder{
+        class ViewHolder {
             public Integer id;
             public ImageView img;
             public TextView imgDesc;

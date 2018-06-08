@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".activity.ChangeInfoActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#999999"
+        android:textSize="20dp"
+        android:text="修改信息"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_singleLineEllipsis="true"
+        android:hint="用户名"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/password_old"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_singleLineEllipsis="true"
+        android:inputType="numberPassword"
+        android:hint="旧密码"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/password_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_singleLineEllipsis="true"
+        android:inputType="numberPassword"
+        android:hint="新密码"/>
+
+    <com.gcl.news.view.StateButton
+        android:id="@+id/btn_change_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:normalTextColor="@color/colorPrimary"
+        app:normalStrokeColor="@color/colorPrimary"
+        app:normalStrokeWidth="1dp"
+        app:pressedBackgroundColor="@color/colorPrimary"
+        app:pressedTextColor="#ffffff"
+        android:text="确认修改"/>
+
+</LinearLayout>

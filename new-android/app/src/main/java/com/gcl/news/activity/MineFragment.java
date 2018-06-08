@@ -16,6 +16,7 @@ import com.gcl.news.utils.RuntimeObject;
 
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Request;
@@ -26,6 +27,7 @@ import okhttp3.Response;
  */
 public class MineFragment extends Fragment {
 
+    private CircleImageView avatar;
     private View draft;
     private View addArticle;
     private View imgManager;
@@ -42,6 +44,7 @@ public class MineFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
+        avatar = view.findViewById(R.id.user_avatar);
         draft = view.findViewById(R.id.mine_draft);
         addArticle = view.findViewById(R.id.mine_edit);
         imgManager = view.findViewById(R.id.mine_img);
@@ -50,6 +53,13 @@ public class MineFragment extends Fragment {
         upload = view.findViewById(R.id.mine_upload);
         username = view.findViewById(R.id.user_name);
         logout = view.findViewById(R.id.mine_logout);
+
+        avatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ChangeInfoActivity.class));
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +83,12 @@ public class MineFragment extends Fragment {
         });
 
         username.setText(RuntimeObject.user.getName());
+        username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ChangeInfoActivity.class));
+            }
+        });
 
         // 草稿
         draft.setOnClickListener(new View.OnClickListener() {

@@ -58,6 +58,7 @@ public class UserController {
             return user;
         }else { // 登陆成功
             User user = userList.get(0);
+            System.out.println(user);
             // session用户
             session.setAttribute("user", user);
             return user;

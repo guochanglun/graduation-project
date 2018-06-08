@@ -36,8 +36,6 @@ public class ImageController {
 
     /**
      * 根据文件名获取图片数据
-     * @param filename
-     * @return
      */
     @GetMapping("/{filename:.+}")
     @ResponseBody
@@ -50,21 +48,16 @@ public class ImageController {
 
     /**
      * 获取用户上传的图片列表
-     * @return
      */
     @GetMapping
     @ResponseBody
     public List<Image> imgList(HttpSession session) {
-//        User user = (User) session.getAttribute("user");
-        return imgRepository.findByUserId(1);
+        User user = (User) session.getAttribute("user");
+        return imgRepository.findByUserId(user.getId());
     }
 
     /**
      * 上传图片
-     * @param file
-     * @param imgDesc
-     * @param session
-     * @return
      */
     @PostMapping
     public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file,
@@ -73,12 +66,13 @@ public class ImageController {
         String filename = "img"+System.currentTimeMillis();
         storageService.store(file, filename);
 
-        // User u = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
+        System.out.println(user);
         // 添加路径到数据库
         Image image = new Image();
         image.setImgDesc(imgDesc);
         image.setImgName(filename);
-        image.setUserId(1);
+        image.setUserId(user.getId());
         imgRepository.save(image);
 
         return baseUrl + "/img/" + filename;
@@ -86,8 +80,6 @@ public class ImageController {
 
     /**
      * 删除图片
-     * @param filename
-     * @return 是否删除成功
      */
     @DeleteMapping("/{filename}")
     public @ResponseBody String delete(@PathVariable("filename") String filename){

@@ -58,6 +58,7 @@ public class ImageManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_manage);
 
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("图片管理");
 
@@ -65,12 +66,17 @@ public class ImageManagementActivity extends AppCompatActivity {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                refreshImage();
                 Toast.makeText(ImageManagementActivity.this, "刷新成功", Toast.LENGTH_SHORT).show();
                 refreshLayout.setRefreshing(false);
             }
         });
 
         listView = findViewById(R.id.img_list);
+        refreshImage();
+    }
+
+    private void refreshImage(){
         final Request request = new Request.Builder().url(Properties.BASE_IMG_URL).get().build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -155,7 +161,6 @@ public class ImageManagementActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.image_management_action_bar_menu, menu);

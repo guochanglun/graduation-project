@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.gcl.news.R;
 import com.gcl.news.utils.Properties;
+import com.gcl.news.utils.RuntimeObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class UploadImageActivity extends AppCompatActivity {
     private Bitmap bitmap = null;
 
     // client
-    private OkHttpClient client = new OkHttpClient();
+    private OkHttpClient client = RuntimeObject.client;
 
     private static final String TAG = "UploadImageActivity";
 
@@ -53,6 +54,7 @@ public class UploadImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_upload_image);
 
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("上传图片");
 
