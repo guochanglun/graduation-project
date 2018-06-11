@@ -72,7 +72,10 @@ public class Main {
 
 	private static String translate(String line) {
 		String json = api.getTransResult(line, "auto", "en");
-		return decodeUnicode(json);
+		//return decodeUnicode(json);
+		String[] splits = json.split("\"");
+		if(splits.length < 17) return "";
+            return splits[17];
 	}
 	
 	public static String decodeUnicode(final String json) {
@@ -206,7 +209,7 @@ class HttpGet {
             conn.setRequestMethod(GET);
             int statusCode = conn.getResponseCode();
             if (statusCode != HttpURLConnection.HTTP_OK) {
-                System.out.println("ç½‘ç»œé”™è¯¯->" + statusCode);
+                System.out.println("ÍøÂç´íÎó->" + statusCode);
             }
 
             InputStream is = conn.getInputStream();
