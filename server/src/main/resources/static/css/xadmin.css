@@ -286,7 +286,7 @@ xblock{
 .left-nav{
     position: absolute;
     top: 46px;
-    bottom: 42px;
+    bottom: 0;
     left: 0;
     z-index: 2;
     padding-top: 10px;
@@ -359,7 +359,6 @@ xblock{
 .x-slide_left {
     width: 17px;
     height: 61px;
-    background: url(../images/icon.png) 0 0 no-repeat;
     position: absolute;
     top: 200px;
     left: 221px;
@@ -370,7 +369,7 @@ xblock{
     position: absolute;
     top: 46px;
     right: 0;
-    bottom: 42px;
+    bottom: 0;
     left: 221px;
     overflow: hidden;
     z-index: 1;
@@ -381,7 +380,7 @@ xblock{
     right: 0;
     bottom: 42px;
     left: 221px;
-    background: rgba(0,0,0,0.5);   0 0 no-repeat;
+    background: rgba(0,0,0,0.5);
     overflow: hidden;
     z-index: 100;
     display: none;
@@ -509,7 +508,8 @@ table th, table td {
         left: -221px;
     }
     .page-content{
-        left: 0px;
+        left: 0;
+        bottom: 0;
     }
     .page-content .layui-tab-content .layui-tab-item{
         -webkit-overflow-scrolling: touch; 
