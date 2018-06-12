@@ -43,6 +43,13 @@ public class UserController {
         return "ok";
     }
 
+    @PostMapping(path = "/adminlogin")
+    public String adminLogin(@RequestParam("username") String username,
+                                    @RequestParam("password") String password,
+                                    HttpSession session){
+	    // todo admin login
+        return "index";
+    }
 	@PostMapping(path = "/login")
     public @ResponseBody User login(@RequestParam("username") String username,
                                     @RequestParam("password") String password,
@@ -79,4 +86,10 @@ public class UserController {
 	public @ResponseBody Iterable<User> getAllUsers() {
 		return userRepository.findAll();
 	}
+
+    @GetMapping(path="/delete/{id}")
+    public @ResponseBody int delete(@PathVariable("id") int id) {
+        userRepository.delete(id);
+        return id;
+    }
 }

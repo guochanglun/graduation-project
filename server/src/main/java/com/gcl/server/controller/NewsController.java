@@ -90,6 +90,16 @@ public class NewsController {
         return "ok";
     }
 
+    @GetMapping("/delete/{id}")
+    public @ResponseBody String deleteForGet(@PathVariable("id") Integer id){
+        News news = newsRepository.findOne(id);
+        // 删除news
+        newsRepository.delete(id);
+        // 删除article
+        articleRepository.delete(news.getArticleId());
+        return "ok";
+    }
+
     /**
      * 添加一条新闻, 添加article
      */
@@ -152,5 +162,21 @@ public class NewsController {
         Article article = articleRepository.findOne(id);
         model.addAttribute("article", article);
         return "article";
+    }
+
+    /**
+     * 返回一篇article Json
+     */
+    @GetMapping("/article/{id}")
+    public @ResponseBody  Article findArticleJson(@PathVariable("id") Integer id){
+        return articleRepository.findOne(id);
+    }
+
+    /**
+     * 返回所有的新闻
+     */
+    @GetMapping("/all")
+    public @ResponseBody Iterable<News> all(){
+        return newsRepository.findAll();
     }
 }

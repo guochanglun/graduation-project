@@ -57,6 +57,15 @@ public class ImageController {
     }
 
     /**
+     * 获取所有
+     */
+    @GetMapping("/all")
+    @ResponseBody
+    public Iterable<Image> imgAll() {
+        return imgRepository.findAll();
+    }
+
+    /**
      * 上传图片
      */
     @PostMapping
@@ -90,6 +99,20 @@ public class ImageController {
         if(storageService.delete(filename)){
             return "ok";
         }
+        return "error";
+    }
+
+    /**
+     * 删除图片
+     */
+    @GetMapping("/delete/{id}")
+    public @ResponseBody String deleteForGet(@PathVariable("id") int id){
+        Image image = imgRepository.findOne(id);
+        // 删除文件
+        if(storageService.delete(image.getImgName())){
+            return "ok";
+        }
+        imgRepository.delete(id);
         return "error";
     }
 
